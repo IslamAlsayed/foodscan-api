@@ -1,0 +1,2677 @@
+{
+    "info": {
+        "_postman_id": "d1a35aff-bb34-419a-aa31-4f19851ef2cf",
+        "name": "foodScan_api",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Employees",
+            "item": [
+                {
+                    "name": "Login as employee role => [chef]",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/login",
+                            "path": [
+                                "api",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"crystal.goodwin@example.net\",\n  \"password\": \"password\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Store new employee",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/employees/store",
+                            "path": [
+                                "api",
+                                "employees",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@gmail.com\",\n  \"phone\": \"684502461\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Logout as employee role => [chef]",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/logout",
+                            "path": [
+                                "api",
+                                "logout"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2MDY0LCJleHAiOjE3MjYxNzk2NjQsIm5iZiI6MTcyNjE3NjA2NCwianRpIjoiNVFzMVlRR0poYTRQSnkzUyIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.N3SHt29jM8PSEd3xRbK5HfWH3bpJL1WYgfI92NW2O18"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Show employee",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/employees/show/1",
+                            "path": [
+                                "api",
+                                "employees",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all employees",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/employees",
+                            "path": [
+                                "api",
+                                "employees"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update employee",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/employees/update/1",
+                            "path": [
+                                "api",
+                                "employees",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2MDY0LCJleHAiOjE3MjYxNzk2NjQsIm5iZiI6MTcyNjE3NjA2NCwianRpIjoiNVFzMVlRR0poYTRQSnkzUyIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.N3SHt29jM8PSEd3xRbK5HfWH3bpJL1WYgfI92NW2O18"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"phone\": \"(364) 111-1111\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Delete employee",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/employees/1",
+                            "path": [
+                                "api",
+                                "employees",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update status employee",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/employees/active/1",
+                            "path": [
+                                "api",
+                                "employees",
+                                "active",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2MDY0LCJleHAiOjE3MjYxNzk2NjQsIm5iZiI6MTcyNjE3NjA2NCwianRpIjoiNVFzMVlRR0poYTRQSnkzUyIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.N3SHt29jM8PSEd3xRbK5HfWH3bpJL1WYgfI92NW2O18"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Administrators",
+            "item": [
+                {
+                    "name": "Login as administrator role => [admin]",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/login",
+                            "path": [
+                                "api",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"wjacobson@example.org\",\n  \"password\": \"password\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Show administrator",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/administrators/show/1",
+                            "path": [
+                                "api",
+                                "administrators",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Store new administrator",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/administrators/store",
+                            "path": [
+                                "api",
+                                "administrators",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"test2\",\n  \"email\": \"test2@gmail.com\",\n  \"phone\": \"46844544845\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Logout as administrator role => [admin]",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/logout",
+                            "path": [
+                                "api",
+                                "logout"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTMzODkzLCJleHAiOjE3MjYxMzc0OTMsIm5iZiI6MTcyNjEzMzg5MywianRpIjoiZEdZajE2eWI3eXNicEczRCIsInN1YiI6IjEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.BT255E5HSAKfPFJnHGWO42ZteEyeDhaYsGt7IAn_9uQ"
+                            },
+                            {
+                                "key": "Guard",
+                                "value": "",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Delete administrator",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/administrators/1",
+                            "path": [
+                                "api",
+                                "administrators",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all administrators",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/administrators",
+                            "path": [
+                                "api",
+                                "administrators"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update administrator",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/administrators/update/1",
+                            "path": [
+                                "api",
+                                "administrators",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"phone\": \"11145451111\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Update status administrator",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/administrators/active/1",
+                            "path": [
+                                "api",
+                                "administrators",
+                                "active",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Customers",
+            "item": [
+                {
+                    "name": "Login as customer role => [casher]",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/login",
+                            "path": [
+                                "api",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"msmitham@example.net\",\n  \"password\": \"password\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Show customer",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/customers/show/1",
+                            "path": [
+                                "api",
+                                "customers",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2NTIwLCJleHAiOjE3MjYxODAxMjAsIm5iZiI6MTcyNjE3NjUyMCwianRpIjoiSmhNcDA5cXJxOE5tUjlKRyIsInN1YiI6IjEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.NXSLcZtMhbwWTVlTyd6CRqFQd3QOvc1fyw4tMbEaekU"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Store new customer",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/customers/store",
+                            "path": [
+                                "api",
+                                "customers",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2NTIwLCJleHAiOjE3MjYxODAxMjAsIm5iZiI6MTcyNjE3NjUyMCwianRpIjoiSmhNcDA5cXJxOE5tUjlKRyIsInN1YiI6IjEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.NXSLcZtMhbwWTVlTyd6CRqFQd3QOvc1fyw4tMbEaekU"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"test1\",\n  \"email\": \"test1@gmail.com\",\n  \"phone\": \"468455348\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Logout as customer role => [casher]",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/logout",
+                            "path": [
+                                "api",
+                                "logout"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2NTIwLCJleHAiOjE3MjYxODAxMjAsIm5iZiI6MTcyNjE3NjUyMCwianRpIjoiSmhNcDA5cXJxOE5tUjlKRyIsInN1YiI6IjEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.NXSLcZtMhbwWTVlTyd6CRqFQd3QOvc1fyw4tMbEaekU"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Delete customer",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/customers/1",
+                            "path": [
+                                "api",
+                                "customers",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all customers",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/customers",
+                            "path": [
+                                "api",
+                                "customers"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2NTIwLCJleHAiOjE3MjYxODAxMjAsIm5iZiI6MTcyNjE3NjUyMCwianRpIjoiSmhNcDA5cXJxOE5tUjlKRyIsInN1YiI6IjEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.NXSLcZtMhbwWTVlTyd6CRqFQd3QOvc1fyw4tMbEaekU"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update customer",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/customers/update/1",
+                            "path": [
+                                "api",
+                                "customers",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2NTIwLCJleHAiOjE3MjYxODAxMjAsIm5iZiI6MTcyNjE3NjUyMCwianRpIjoiSmhNcDA5cXJxOE5tUjlKRyIsInN1YiI6IjEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.NXSLcZtMhbwWTVlTyd6CRqFQd3QOvc1fyw4tMbEaekU"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"phone\": \"1114651111\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Update status customer",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/customers/active/1",
+                            "path": [
+                                "api",
+                                "customers",
+                                "active",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2NTIwLCJleHAiOjE3MjYxODAxMjAsIm5iZiI6MTcyNjE3NjUyMCwianRpIjoiSmhNcDA5cXJxOE5tUjlKRyIsInN1YiI6IjEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.NXSLcZtMhbwWTVlTyd6CRqFQd3QOvc1fyw4tMbEaekU"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Meals",
+            "item": [
+                {
+                    "name": "Show meal",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/meals/show/1",
+                            "path": [
+                                "api",
+                                "meals",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Delete meal",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/meals/1",
+                            "path": [
+                                "api",
+                                "meals",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all meals",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/meals",
+                            "path": [
+                                "api",
+                                "meals"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update meal",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/meals/update/1",
+                            "path": [
+                                "api",
+                                "meals",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"meal 1\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Update status meal",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/meals/active/1",
+                            "path": [
+                                "api",
+                                "meals",
+                                "active",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Store new meal",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/meals/store",
+                            "path": [
+                                "api",
+                                "meals",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "meal 1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "price",
+                                    "value": "3.00",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": "c:\\Users\\OSTAZ4\\Desktop\\pizza\\2.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Extras",
+            "item": [
+                {
+                    "name": "Show extra",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/extras/show/1",
+                            "path": [
+                                "api",
+                                "extras",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Delete extra",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/extras/1",
+                            "path": [
+                                "api",
+                                "extras",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all extras",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/extras",
+                            "path": [
+                                "api",
+                                "extras"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update extra",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/extras/update/1",
+                            "path": [
+                                "api",
+                                "extras",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"price\": \"20.00\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTcyMDE5LCJleHAiOjE3MjYxNzU2MTksIm5iZiI6MTcyNjE3MjAxOSwianRpIjoiU1o5ZnFDM3Y2UlYzclBsZiIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.JbtVWKXfUTQaGCd6pxE1ZO482FhGj_0XXd1-_dJoAHE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Store new extra",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/extras/store",
+                            "path": [
+                                "api",
+                                "extras",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "meal 1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "cost",
+                                    "value": "3.00",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": "c:\\Users\\OSTAZ4\\Desktop\\pizza\\2.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTY3ODI5LCJleHAiOjE3MjYxNzE0MjksIm5iZiI6MTcyNjE2NzgyOSwianRpIjoiOU94TFVSNnk5cHV4blljbSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.EE8gnwzC93FDNp75-L9xn-FJZcUfsK0DpQFbw3sa7Ys",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update status extra",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/extras/active/4",
+                            "path": [
+                                "api",
+                                "extras",
+                                "active",
+                                "4"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTYxMzk5LCJleHAiOjE3MjYxNjQ5OTksIm5iZiI6MTcyNjE2MTM5OSwianRpIjoiYjlKaVFOdktNc3JOc1FkUSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.rrf8fgVurlIYEufLctV2ZlRAUeDdhD97pcVCIdZXYKc",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Addons",
+            "item": [
+                {
+                    "name": "Show addon",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/addons/show/1",
+                            "path": [
+                                "api",
+                                "addons",
+                                "show",
+                                "3"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTcyMDE5LCJleHAiOjE3MjYxNzU2MTksIm5iZiI6MTcyNjE3MjAxOSwianRpIjoiU1o5ZnFDM3Y2UlYzclBsZiIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.JbtVWKXfUTQaGCd6pxE1ZO482FhGj_0XXd1-_dJoAHE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete addon",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/addons/1",
+                            "path": [
+                                "api",
+                                "addons",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all addons",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/addons",
+                            "path": [
+                                "api",
+                                "addons"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTU5Njc3LCJleHAiOjE3MjYxNTk4NTcsIm5iZiI6MTcyNjE1OTY3NywianRpIjoibXFDY3JpUzhxcVc5UW8xZCIsInN1YiI6IjEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.xvaI32S59ZH4zJmph5nwjCrERJ0rKhCnKDxKx6Ce9ok",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update addon",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/addons/update/1",
+                            "path": [
+                                "api",
+                                "addons",
+                                "update",
+                                "3"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"price\": \"1.00\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTcyMDE5LCJleHAiOjE3MjYxNzU2MTksIm5iZiI6MTcyNjE3MjAxOSwianRpIjoiU1o5ZnFDM3Y2UlYzclBsZiIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.JbtVWKXfUTQaGCd6pxE1ZO482FhGj_0XXd1-_dJoAHE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Store new addon",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/addons/store",
+                            "path": [
+                                "api",
+                                "addons",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "meal 1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "cost",
+                                    "value": "3.00",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": "c:\\Users\\OSTAZ4\\Desktop\\pizza\\2.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTY3ODI5LCJleHAiOjE3MjYxNzE0MjksIm5iZiI6MTcyNjE2NzgyOSwianRpIjoiOU94TFVSNnk5cHV4blljbSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.EE8gnwzC93FDNp75-L9xn-FJZcUfsK0DpQFbw3sa7Ys",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update status addon",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/addons/active/1",
+                            "path": [
+                                "api",
+                                "addons",
+                                "active",
+                                "4"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTYxMzk5LCJleHAiOjE3MjYxNjQ5OTksIm5iZiI6MTcyNjE2MTM5OSwianRpIjoiYjlKaVFOdktNc3JOc1FkUSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.rrf8fgVurlIYEufLctV2ZlRAUeDdhD97pcVCIdZXYKc",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Categories",
+            "item": [
+                {
+                    "name": "Show category",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/categories/show/1",
+                            "path": [
+                                "api",
+                                "categories",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Delete category",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/categories/1",
+                            "path": [
+                                "api",
+                                "categories",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all categories",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/categories",
+                            "path": [
+                                "api",
+                                "categories"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update category",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/categories/update/1",
+                            "path": [
+                                "api",
+                                "categories",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"category 1\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Store new category",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/categories/store",
+                            "path": [
+                                "api",
+                                "categories",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "category 1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "test description",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": "c:\\Users\\OSTAZ4\\Desktop\\pizza\\pizza3.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update status category",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/categories/active/1",
+                            "path": [
+                                "api",
+                                "categories",
+                                "active",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "DiningTables",
+            "item": [
+                {
+                    "name": "Show diningTable",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/diningtables/show/1",
+                            "path": [
+                                "api",
+                                "diningtables",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Delete diningTable",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/diningtables/1",
+                            "path": [
+                                "api",
+                                "diningtables",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all diningTables",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/diningTables",
+                            "path": [
+                                "api",
+                                "diningTables"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update diningTable",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/diningtables/update/1",
+                            "path": [
+                                "api",
+                                "diningtables",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"diningTables 1\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Store new diningTable",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/diningtables/store",
+                            "path": [
+                                "api",
+                                "diningtables",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "diningtable 1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "test description",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": "c:\\Users\\OSTAZ4\\Desktop\\pizza\\pizza3.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update status diningTable",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/diningtables/active/1",
+                            "path": [
+                                "api",
+                                "diningtables",
+                                "active",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Transactions",
+            "item": [
+                {
+                    "name": "Show transaction",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/transactions/show/1",
+                            "path": [
+                                "api",
+                                "transactions",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Delete transaction",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/transactions/1",
+                            "path": [
+                                "api",
+                                "transactions",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all transactions",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/transactions",
+                            "path": [
+                                "api",
+                                "transactions"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update transaction",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/transactions/update/1",
+                            "path": [
+                                "api",
+                                "transactions",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"transactions 1\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Store new transaction",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/transactions/store",
+                            "path": [
+                                "api",
+                                "transactions",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "transaction 1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "test description",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": "c:\\Users\\OSTAZ4\\Desktop\\pizza\\pizza3.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update status transaction",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/transactions/active/1",
+                            "path": [
+                                "api",
+                                "transactions",
+                                "active",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Orders",
+            "item": [
+                {
+                    "name": "Show order",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/orders/show/1",
+                            "path": [
+                                "api",
+                                "orders",
+                                "show",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Delete order",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/orders/1",
+                            "path": [
+                                "api",
+                                "orders",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all orders",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/orders",
+                            "path": [
+                                "api",
+                                "orders"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc1NzcwLCJleHAiOjE3MjYxNzkzNzAsIm5iZiI6MTcyNjE3NTc3MCwianRpIjoiRVRVSFcxYllSZVJJaVNtTSIsInN1YiI6IjEiLCJwcnYiOiIzMjk2M2E2MDZjMmYxNzFmMWMxNDMzMWU3Njk3NjZjZDU5MTJlZDE1In0.wqPT-mb7Q8uuCF40x_hJpsyP319ve9WCX_3LrQuFOs0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Update order",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/orders/update/1",
+                            "path": [
+                                "api",
+                                "orders",
+                                "update",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"orders 1\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Store new order",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/orders/store",
+                            "path": [
+                                "api",
+                                "orders",
+                                "store"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "order 1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "test description",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "1",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": "c:\\Users\\OSTAZ4\\Desktop\\pizza\\pizza3.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update status order",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://127.0.0.1:8000/api/orders/active/1",
+                            "path": [
+                                "api",
+                                "orders",
+                                "active",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "127",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI2MTc2ODk0LCJleHAiOjE3MjYxODA0OTQsIm5iZiI6MTcyNjE3Njg5NCwianRpIjoiZlA0MkYxWmNXVTVrWjFmRSIsInN1YiI6IjEiLCJwcnYiOiI5MmQ1ZThlYjFiMzhjY2QxMTQ3Njg5NmMxOWIwZTQ0NTEyYjJhYWNkIn0.MhEiBFCnigFkpW9_hR4B3LsYFKw_nnKkXrTKgj9mXYQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"1\"\n}"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
