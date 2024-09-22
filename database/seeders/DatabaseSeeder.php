@@ -22,9 +22,6 @@ class DatabaseSeeder extends Seeder
             ExtraSeeder::class,
             CustomerSeeder::class,
             DiningTableSeeder::class,
-            ProjectSeeder::class,
-            // OrderSeeder::class,
-            // TransactionSeeder::class,
         ]);
     }
 }

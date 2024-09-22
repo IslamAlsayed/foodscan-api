@@ -9,16 +9,19 @@ use App\Http\Resources\ItemResource;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Items\ItemStoreRequest;
 use App\Http\Requests\Items\ItemUpdateRequest;
-use App\Traits\SendSmsAndEmail;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Mail;
 
+/**
+ * Handles all meals related requests.
+ *
+ * @author IslamAlsayed eslamalsayed8133@gmail.com
+ */
 class MealController extends Controller
 {
-    use SendSmsAndEmail;
-
     /**
-     * Display a listing of the resource.
+     * Get all items with categories.
+     * 
+     * @return ItemResource Returns a JSON response containing a collection of active meals with their categories.
      */
     public function index()
     {
@@ -36,23 +39,37 @@ class MealController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created meal in storage.
+     *
+     * @param ItemStoreRequest  $request The request object containing the meal data.
+     * @return ItemResource Returns a JSON response indicating the success or failure of the operation. If successful, it includes the created meal data. If failed, it includes an error message.
      */
     public function store(ItemStoreRequest $request)
     {
         try {
-            $data = Meal::create($request->all());
-            $imagePath = $request->file('image')->store('Meals/' . $data->id, 'public');
-            $data->update(['image' => $imagePath]);
+            $meal = Meal::create($request->all());
 
-            return response()->json(['status' => 'success', 'data' => new ItemResource($data), 'message' => 'Meal created successfully'], 200);
+            if ($request->hasFile('image')) {
+                if ($meal->image) Storage::disk('public')->delete($meal->image);
+
+                $imagePath = $request->file('image')->store('Meals/' . $meal->id, 'public');
+                $updateData['image'] = $imagePath;
+            } else {
+                $updateData['image'] = null;
+            }
+            $meal = Meal::find($meal->id);
+
+            return response()->json(['status' => 'success', 'data' => new ItemResource($meal), 'message' => 'Meal created successfully'], 200);
         } catch (Exception $e) {
             return response()->json(['status' => 'failed', 'message' => 'Internal server error', 'error' => $e->getMessage()], 500);
         }
     }
 
     /**
-     * Display the specified resource.
+     * show information about a specific meal.
+     *
+     * @param int $id The ID of the meal to retrieve.
+     * @return ItemResource Returns a JSON response containing the meal data.
      */
     public function show($id)
     {
@@ -72,7 +89,10 @@ class MealController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update a specific meal.
+     *
+     * @param ItemResource $meal The meal to update.
+     * @return JsonResponse Returns a JSON response indicating the success or failure of the update operation.
      */
     public function update(ItemUpdateRequest $request, $id)
     {
@@ -105,6 +125,12 @@ class MealController extends Controller
         }
     }
 
+    /**
+     * Updates the status of a meal.
+     *
+     * @param ItemResource $meal The meal to update.
+     * @return ItemResource The updated meal.
+     */
     public function updateStatus(Request $request,  $id)
     {
         $request->validate(['status' => 'required|in:0,1']);
@@ -131,7 +157,10 @@ class MealController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy meal by id.
+     *
+     * @param integer $id
+     * @return message.
      */
     public function destroy($id)
     {
@@ -153,7 +182,10 @@ class MealController extends Controller
     }
 
     /**
-     * Display a listing of the resource after filtration.
+     * search meal by [name, description, price, type, status, category_id].
+     *
+     * @param Request $request.
+     * @return ItemResource Returns a JSON response containing a collection of active meals with their categories.
      */
     public function search(Request $request)
     {

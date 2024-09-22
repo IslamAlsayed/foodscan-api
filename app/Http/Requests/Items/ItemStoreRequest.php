@@ -27,8 +27,15 @@ class ItemStoreRequest extends FormRequest
             'price' => 'numeric|min:0.01|max:999999.99',
             'type' => 'string|in:vegetarian,non-vegetarian',
             'status' => 'string|in:1,0',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_id' => 'required|exists:categories,id',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'category_id.exists' => 'The selected category id is invalid, or not exist',
         ];
     }
 }

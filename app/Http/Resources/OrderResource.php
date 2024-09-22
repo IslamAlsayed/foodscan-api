@@ -21,9 +21,18 @@ class OrderResource extends JsonResource
             'order_status' => $this->order_status,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
-            'employee' => ['id' => $this->employee->id, 'name' => $this->employee->name, 'role' => 'casher'],
+            'employee' => [
+                'id' => $this->employee->id,
+                'name' => $this->employee->name,
+                'role' => 'casher'
+            ],
             'customer' => new CustomerResource($this->whenLoaded('customer')),
-            'dining_table' => new Dining_TableResource($this->whenLoaded('dining_table')),
+            'dining_table' => [
+                'id' => $this->dining_table->id,
+                'floor' => $this->dining_table->floor,
+                'size' => $this->dining_table->size,
+                'status' => $this->dining_table->status
+            ],
         ];
     }
 }

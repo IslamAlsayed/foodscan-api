@@ -6,17 +6,23 @@ use App\Http\Controllers\Controller;
 use Exception;
 use App\Models\Employee;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Auth\AuthUpdateRequest;
-use App\Http\Requests\Auth\AuthRegisterRequest;
 use App\Http\Resources\Auth\AuthShowResource;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+/**
+ * Handles employee authentication and authorization.
+ *
+ * @author IslamAlsayed eslamalsayed8133@gmail.com
+ */
 class EmployeeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get the employee data.
+     *
+     * @param Request $request Request object from the admin controller or any other controller.
+     * @return AuthShowResource object containing the employee data.
      */
     public function index()
     {
@@ -34,22 +40,10 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(AuthRegisterRequest $request)
-    {
-        try {
-            $user = Employee::create($request->all());
-
-            $token = JWTAuth::fromUser($user);
-            return response()->json(['status' => 'success', 'data' => new AuthShowResource($user), 'token' => $token, 'message' => 'Employee created successfully'], 200);
-        } catch (Exception $e) {
-            return response()->json(['status' => 'failed', 'message' => 'Internal server error', 'error' => $e->getMessage()], 500);
-        }
-    }
-
-    /**
-     * Display the specified resource.
+     * Get the employee data.
+     * 
+     * @param Request $request Request object from the admin controller or any other controller.
+     * @return AuthShowResource object containing the employee data.
      */
     public function show($id)
     {
@@ -68,7 +62,10 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the employee data.
+     * 
+     * @param AuthShowResource $employee employee object.
+     * @return AuthShowResource object containing the updated employee data.
      */
     public function update(AuthUpdateRequest $request,  $id)
     {
@@ -96,6 +93,12 @@ class EmployeeController extends Controller
         }
     }
 
+    /**
+     * Updates an existing employee's status.
+     * 
+     * @param Request $request Request object containing the updated status.
+     * @return Response JSON response indicating the success or failure of the operation.
+     */
     public function updateStatus(Request $request,  $id)
     {
         $request->validate(['status' => 'required|in:0,1']);
@@ -122,7 +125,10 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy employee if status account is activated.
+     * 
+     * @param int $id The ID of the employee to be updated.
+     * @return Response JSON response indicating the success or failure of the operation.
      */
     public function destroy($id)
     {

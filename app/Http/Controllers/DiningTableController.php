@@ -5,16 +5,22 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\DiningTable;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\Dining_TableResource;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Requests\DiningTables\DiningTableStoreRequest;
 use App\Http\Requests\DiningTables\DiningTableUpdateRequest;
 
+/**
+ * Handles all diningTables related requests
+ *
+ * @author IslamAlsayed eslamalsayed8133@gmail.com
+ */
 class DiningTableController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get all diningtable
+     * 
+     * @return Dining_TableResource Returns a JSON response containing a collection of active diningtables.
      */
     public function index()
     {
@@ -32,20 +38,28 @@ class DiningTableController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created diningtable in storage.
+     *
+     * @param DiningTableStoreRequest $request The request object containing the diningtables data.
+     * @return Dining_TableResource Returns a JSON response containing the newly created diningtable.
      */
     public function store(DiningTableStoreRequest $request)
     {
         try {
-            $data = DiningTable::create($request->all());
+            $diningTable = DiningTable::create($request->all());
+            $diningTable = DiningTable::find($diningTable->id);
 
-            return response()->json(['status' => 'success', 'data' => new Dining_TableResource($data), 'message' => 'DiningTable created successfully'], 200);
+            return response()->json(['status' => 'success', 'data' => new Dining_TableResource($diningTable), 'message' => 'DiningTable created successfully'], 200);
         } catch (Exception $e) {
             return response()->json(['status' => 'failed', 'message' => 'Internal server error', 'error' => $e->getMessage()], 500);
         }
     }
+
     /**
-     * Display the specified resource.
+     * show information about a specific diningtable.
+     *
+     * @param int $id The ID of the diningtable to retrieve.
+     * @return Dining_TableResource Returns a JSON response containing the diningtable information.
      */
     public function show($id)
     {
@@ -65,7 +79,10 @@ class DiningTableController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update a specific diningtable.
+     *
+     * @param DiningTableUpdateRequest $request The request object containing the updated diningtable data.
+     * @return Dining_TableResource Returns a JSON response containing the updated diningtable information.
      */
     public function update(DiningTableUpdateRequest $request, $id)
     {
@@ -91,6 +108,12 @@ class DiningTableController extends Controller
         }
     }
 
+    /**
+     * Updates the status of a diningtable.
+     *
+     * @param Request $request The request object.
+     * @return Dining_TableResource The diningtable resource
+     */
     public function updateStatus(Request $request,  $id)
     {
         $request->validate(['status' => 'required|in:0,1']);
@@ -117,7 +140,10 @@ class DiningTableController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy diningtable by id.
+     *
+     * @param integer $id
+     * @return message.
      */
     public function destroy($id)
     {
@@ -139,7 +165,10 @@ class DiningTableController extends Controller
     }
 
     /**
-     * Display a listing of the resource after filtration.
+     * search diningtable by [name, floor, size, status].
+     *
+     * @param Request $request.
+     * @return Dining_TableResource Returns a JSON response containing a collection of active diningtable.
      */
     public function search(Request $request)
     {

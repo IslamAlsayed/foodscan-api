@@ -19,9 +19,6 @@
 
     <form action="{{ route('checkout_post') }}" method="POST">
         @csrf
-        <input type="hidden" name="employee_id" value="1">
-        <input type="hidden" name="customer_id" value="1">
-        <input type="hidden" name="dining_table_id" value="1">
         <button class="btn btn-info m-5">Test Checkout Paymob</button>
     </form>
 </body>

@@ -6,17 +6,23 @@ use App\Http\Controllers\Controller;
 use Exception;
 use App\Models\Administrator;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Auth\AuthUpdateRequest;
-use App\Http\Requests\Auth\AuthRegisterRequest;
 use App\Http\Resources\Auth\AuthShowResource;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+/**
+ * Handles administrator authentication and authorization.
+ *
+ * @author IslamAlsayed eslamalsayed8133@gmail.com
+ */
 class AdministratorController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get the administrator data.
+     *
+     * @param Request $request Request object from the admin controller or any other controller.
+     * @return AuthShowResource object containing the administrator data.
      */
     public function index()
     {
@@ -34,22 +40,10 @@ class AdministratorController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(AuthRegisterRequest $request)
-    {
-        try {
-            $user = Administrator::create($request->all());
-            $user = Administrator::findOrFail($user->id);
-            $token = JWTAuth::fromUser($user);
-            return response()->json(['status' => 'success', 'data' => new AuthShowResource($user), 'token' => $token, 'message' => 'Administrator created successfully'], 200);
-        } catch (Exception $e) {
-            return response()->json(['status' => 'failed', 'message' => 'Internal server error', 'error' => $e->getMessage()], 500);
-        }
-    }
-
-    /**
-     * Display the specified resource.
+     * Get the administrator data.
+     * 
+     * @param Request $request Request object from the admin controller or any other controller.
+     * @return AuthShowResource object containing the administrator data.
      */
     public function show($id)
     {
@@ -69,7 +63,10 @@ class AdministratorController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the administrator data.
+     * 
+     * @param AuthShowResource $administrator Administrator object.
+     * @return AuthShowResource object containing the updated administrator data.
      */
     public function update(AuthUpdateRequest $request,  $id)
     {
@@ -97,6 +94,12 @@ class AdministratorController extends Controller
         }
     }
 
+    /**
+     * Updates an existing administrator's status.
+     * 
+     * @param Request $request Request object containing the updated status.
+     * @return Response JSON response indicating the success or failure of the operation.
+     */
     public function updateStatus(Request $request,  $id)
     {
         $request->validate(['status' => 'required|in:0,1']);
@@ -123,7 +126,10 @@ class AdministratorController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy administrator if status account is activated.
+     * 
+     * @param int $id The ID of the administrator to be updated.
+     * @return Response JSON response indicating the success or failure of the operation.
      */
     public function destroy($id)
     {

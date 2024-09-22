@@ -28,4 +28,11 @@ class AuthUpdateRequest extends FormRequest
             'password' => 'string|min:8|confirmed',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'email.exists' => 'The selected email is invalid, or exist',
+        ];
+    }
 }

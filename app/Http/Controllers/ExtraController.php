@@ -9,15 +9,19 @@ use App\Http\Resources\ItemResource;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Items\ItemStoreRequest;
 use App\Http\Requests\Items\ItemUpdateRequest;
-use App\Traits\SendSmsAndEmail;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+/**
+ * Handles all extras related requests.
+ *
+ * @author IslamAlsayed eslamalsayed8133@gmail.com
+ */
 class ExtraController extends Controller
 {
-    use SendSmsAndEmail;
-
     /**
-     * Display a listing of the resource.
+     * Get all items with categories.
+     * 
+     * @return ItemResource Returns a JSON response containing a collection of active extras with their categories.
      */
     public function index()
     {
@@ -35,23 +39,38 @@ class ExtraController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created extra in storage.
+     *
+     * @param ItemStoreRequest  $request The request object containing the extra data.
+     * @return ItemResource Returns a JSON response indicating the success or failure of the operation. If successful, it includes the created extra data. If failed, it includes an error message.
      */
     public function store(ItemStoreRequest $request)
     {
         try {
-            $data = Extra::create($request->all());
-            $imagePath = $request->file('image')->store('Extras/' . $data->id, 'public');
-            $data->update(['image' => $imagePath]);
+            $extra = Extra::create($request->all());
 
-            return response()->json(['status' => 'success', 'data' => new ItemResource($data), 'message' => 'Extra created successfully'], 200);
+            if ($request->hasFile('image')) {
+                if ($extra->image) Storage::disk('public')->delete($extra->image);
+
+                $imagePath = $request->file('image')->store('Extras/' . $extra->id, 'public');
+                $updateData['image'] = $imagePath;
+            } else {
+                $updateData['image'] = null;
+            }
+
+            $extra = Extra::find($extra->id);
+
+            return response()->json(['status' => 'success', 'data' => new ItemResource($extra), 'message' => 'Extra created successfully'], 200);
         } catch (Exception $e) {
             return response()->json(['status' => 'failed', 'message' => 'Internal server error', 'error' => $e->getMessage()], 500);
         }
     }
 
     /**
-     * Display the specified resource.
+     * show information about a specific extra.
+     *
+     * @param int $id The ID of the extra to retrieve.
+     * @return ItemResource Returns a JSON response containing the extra data.
      */
     public function show($id)
     {
@@ -71,7 +90,10 @@ class ExtraController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update a specific extra.
+     *
+     * @param ItemResource $extra The extra to update.
+     * @return JsonResponse Returns a JSON response indicating the success or failure of the update operation.
      */
     public function update(ItemUpdateRequest $request, $id)
     {
@@ -104,6 +126,12 @@ class ExtraController extends Controller
         }
     }
 
+    /**
+     * Updates the status of a extra.
+     *
+     * @param ItemResource $extra The extra to update.
+     * @return ItemResource The updated extra.
+     */
     public function updateStatus(Request $request,  $id)
     {
         $request->validate(['status' => 'required|in:0,1']);
@@ -130,7 +158,10 @@ class ExtraController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy extra by id.
+     *
+     * @param integer $id
+     * @return message.
      */
     public function destroy($id)
     {
@@ -152,7 +183,10 @@ class ExtraController extends Controller
     }
 
     /**
-     * Display a listing of the resource after filtration.
+     * search extra by [name, description, price, type, status, category_id].
+     *
+     * @param Request $request.
+     * @return ItemResource Returns a JSON response containing a collection of active extras with their categories.
      */
     public function search(Request $request)
     {

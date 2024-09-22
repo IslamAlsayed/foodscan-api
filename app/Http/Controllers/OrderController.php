@@ -8,16 +8,19 @@ use App\Models\Customer;
 use App\Models\Employee;
 use App\Models\DiningTable;
 use Illuminate\Http\Request;
-use App\Traits\SendSmsAndEmail;
+use App\Jobs\SendOrderEmailJob;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\OrderResource;
 use App\Http\Controllers\PayMobController;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+/**
+ * Handles Order related requests.
+ *
+ * @author IslamAlsayed eslamalsayed8133@gmail.com
+ */
 class OrderController extends Controller
 {
-    use SendSmsAndEmail;
-
     /**
      * Display a listing of the resource.
      */
@@ -41,6 +44,10 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $request['employee_id'] = '1';
+        $request['customer_id'] = '1';
+        $request['dining_table_id'] = '1';
+
         $validated = $request->validate([
             "notes" => "nullable|string",
             // "products" => "required",
@@ -54,14 +61,14 @@ class OrderController extends Controller
             "dining_table_id" => "required|exists:dining_tables,id",
         ]);
 
-        $models = [
+        $users = [
             'employee' => Employee::findOrFail($validated['employee_id']),
             'customer' => Customer::findOrFail($validated['customer_id']),
             'dining_table' => DiningTable::findOrFail($validated['dining_table_id']),
         ];
 
-        foreach ($models as $type => $model) {
-            if ($model->status === 0) {
+        foreach ($users as $type => $user) {
+            if ($user->status === 0) {
                 return response()->json(['status' => 'failed', 'message' => "This $type is not active"], 403);
             }
         }
@@ -70,17 +77,24 @@ class OrderController extends Controller
             $order = Order::create($request->all());
             $order->order_status = 'in_progress';
 
-            $order = Order::FindOrFail($order->id);
+            $order = Order::findOrFail($order->id);
 
-            $PaymentKey = PayMobController::pay($order);
+            $paymentResponse = PayMobController::pay($order);
 
-            $this->SendSmsAndEmail($order);
+            if ($paymentResponse->status() == 200) {
+                $paymentData = $paymentResponse->getData();
+                if ($paymentData->status == 'success') {
+                    return response()->json(['status' => 'success', 'data' => new OrderResource($order), 'message' => 'Order created successfully', 'token' => $paymentData->token], 200);
+                }
+            }
 
-            DB::commit();
-            return view('payment.paymob_iframe')->with(['token' => $PaymentKey]);
-            // return response()->json(['status' => 'success', 'data' => new OrderResource($order), 'message' => 'Order created successfully'], 200);
+            SendOrderEmailJob::dispatch($order);
+            return response()->json(['status' => 'failed', 'message' => 'Payment failed'], 400);
+
+            // DB::commit();
+            // return view('payment.paymob_iframe')->with(['token' => $PaymentKey]);
         } catch (Exception $e) {
-            DB::rollBack();
+            // DB::rollBack();
             return response()->json(['status' => 'failed', 'message' => 'Internal server error', 'error' => $e->getMessage()], 500);
         }
     }
@@ -135,7 +149,7 @@ class OrderController extends Controller
 
             $order->update($updateData);
 
-            $this->SendSmsAndEmail($order);
+            SendOrderEmailJob::dispatch($order);
 
             return response()->json(['status' => 'success', 'data' => new OrderResource($order), 'message' => 'Order updated successfully'], 200);
         } catch (ModelNotFoundException $e) {
@@ -184,7 +198,7 @@ class OrderController extends Controller
             $updateSuccessful = $order->update($request->only(['order_status']));
 
             if ($updateSuccessful && $order->wasChanged('order_status')) {
-                $this->SendSmsAndEmail($order);
+                SendOrderEmailJob::dispatch($order);
                 DB::commit();
                 return response()->json(['status' => 'success', 'data' => ['order_status' => $order->order_status], 'message' => 'Order status updated successfully'], 200);
             }

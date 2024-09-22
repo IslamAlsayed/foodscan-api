@@ -31,4 +31,11 @@ class ItemUpdateRequest extends FormRequest
             'category_id' => 'exists:categories,id',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'category_id.exists' => 'The selected category id is invalid, or not exist',
+        ];
+    }
 }

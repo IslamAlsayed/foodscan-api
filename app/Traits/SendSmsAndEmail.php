@@ -3,7 +3,7 @@
 namespace App\Traits;
 
 use App\Mail\MailOrder;
-use App\Services\SMSMessage;
+use App\Services\SMSOrderMessage;
 use Illuminate\Support\Facades\Mail;
 
 trait SendSmsAndEmail
@@ -12,7 +12,7 @@ trait SendSmsAndEmail
     {
         Mail::to($order->customer->email)->send(new MailOrder($order));
 
-        $SMSMessage = new SMSMessage();
+        $SMSOrderMessage = new SMSOrderMessage();
         $websiteUrl = 'http://192.168.1.63:8000/api/orders/show/' . $order->id;
 
         $message =
@@ -24,6 +24,6 @@ trait SendSmsAndEmail
                     "Your order is now ready for pickup! 🎁 Please visit us to pick it up. We appreciate your patience! Visit us at $websiteUrl for more details."
                     : "Your order has been updated. Please review the updated details below. Visit us at $websiteUrl for more details."));
 
-        $SMSMessage->sendSMS('+2001065438133', $message);
+        $SMSOrderMessage->sendSMS('+2001065438133', $message);
     }
 }
