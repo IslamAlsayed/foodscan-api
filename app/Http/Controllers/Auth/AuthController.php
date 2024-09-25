@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use Exception;
+use App\Mail\MailUser;
 use App\Models\Customer;
 use App\Models\Employee;
 use App\Models\Administrator;
 use App\Jobs\SendUserEmailJob;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use App\Jobs\NotifySessionExpirationJob;
+use Illuminate\Support\Facades\Mail;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\Auth\AuthLoginRequest;
 use App\Http\Resources\Auth\AuthShowResource;
@@ -40,11 +39,11 @@ class AuthController extends Controller
         $message = '';
 
         if (Administrator::where('email', $email)->exists()) {
-            $message = "This email is already registered as an administrator!";
+            $message = "This email is already registered as an " . $role . "!";
         } elseif (Employee::where('email', $email)->exists()) {
-            $message = "This email is already registered as an employee!";
+            $message = "This email is already registered as an " . $role . "!";
         } elseif (Customer::where('email', $email)->exists()) {
-            $message = "This email is already registered as a customer!";
+            $message = "This email is already registered as a " . $role . "!";
         } else {
             $message = false;
         }
@@ -55,9 +54,8 @@ class AuthController extends Controller
 
         try {
             $user = $this->createUser($request, $role);
-            $token = JWTAuth::fromUser($user);
-            SendUserEmailJob::dispatch($user, 'register');
-            return response()->json(['status' => 'success', 'data' => new AuthShowResource($user), 'token' => $token, 'message' => 'Administrator created successfully'], 200);
+            // SendUserEmailJob::dispatch($user, 'register');
+            return response()->json(['status' => 'success', 'data' => new AuthShowResource($user), 'message' => ucfirst($role) . ' created successfully'], 200);
         } catch (Exception $e) {
             return response()->json(['status' => 'failed', 'message' => 'Internal server error', 'error' => $e->getMessage()], 500);
         }
@@ -124,8 +122,7 @@ class AuthController extends Controller
             }
 
             $token = JWTAuth::fromUser($user);
-            SendUserEmailJob::dispatch($user, 'logged in');
-
+            // SendUserEmailJob::dispatch($user, 'logged in');
             return response()->json(['status' => 'success', 'data' => new AuthLoginResource($user), 'token' => $token, 'message' => 'Successfully logged in'], 200);
         } catch (JWTException $e) {
             return response()->json(['status' => 'failed', 'message' => 'Could not create token', 'error' => $e->getMessage()], 500);
@@ -153,8 +150,8 @@ class AuthController extends Controller
         }
 
         try {
-            SendUserEmailJob::dispatch(Auth::guard($guard)->user(), 'logged out');
             Auth::guard($guard)->logout();
+            // SendUserEmailJob::dispatch(Auth::guard($guard)->user(), 'logged out');
             return response()->json(['status' => 'success', 'message' => 'Successfully logged out'], 200);
         } catch (JWTException $e) {
             return response()->json(['status' => 'failed', 'message' => 'Failed to log out', 'error' => $e->getMessage()], 500);

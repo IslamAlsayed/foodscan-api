@@ -192,21 +192,20 @@ class AddonController extends Controller
     {
         try {
             $addons = Addon::with('category')->where('status', '1')->get();
-            $name = $request->name;
-            $description = $request->description;
-            $price = $request->price;
-            $type = $request->type;
-            $status = $request->status;
-            $category_id = $request->category_id;
 
-            $filtered = $addons->filter(function ($addon) use ($name, $description, $price, $type, $status, $category_id) {
-                return $addon['name'] == $name ||
-                    $addon['description'] == $description ||
-                    $addon['price'] == $price ||
-                    $addon['type'] == $type ||
-                    $addon['status'] == $status ||
-                    $addon['category_id'] == $category_id;
+            $filtered = $addons->filter(function ($addon) use ($request) {
+                return $addon['name'] == $request->name ||
+                    $addon['description'] == $request->description ||
+                    $addon['price'] == $request->price ||
+                    $addon['type'] == $request->type ||
+                    $addon['status'] == $request->status ||
+                    $addon['category_id'] == $request->category_id;
             });
+
+            if ($filtered->isEmpty()) {
+                return response()->json(['status' => 'failed', 'message' => 'No addons found'], 404);
+            }
+
 
             return response()->json(['status' => 'success', 'data' => ItemResource::collection($filtered)], 200);
         } catch (Exception $e) {

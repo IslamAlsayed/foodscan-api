@@ -1,6 +1,8 @@
 <?php
 
+use App\Mail\MailUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*

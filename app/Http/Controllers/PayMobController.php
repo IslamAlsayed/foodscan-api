@@ -92,7 +92,7 @@ class PayMobController extends Controller
                     'payment_status' => 'paid',
                     'transaction_id' => $transaction_id
                 ]);
-                SendOrderEmailJob::dispatch($order);
+                // SendOrderEmailJob::dispatch($order);
             } else {
                 $order->update([
                     'payment_type' => 'online',

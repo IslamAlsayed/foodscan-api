@@ -88,7 +88,7 @@ class OrderController extends Controller
                 }
             }
 
-            SendOrderEmailJob::dispatch($order);
+            // SendOrderEmailJob::dispatch($order);
             return response()->json(['status' => 'failed', 'message' => 'Payment failed'], 400);
 
             // DB::commit();
@@ -149,7 +149,7 @@ class OrderController extends Controller
 
             $order->update($updateData);
 
-            SendOrderEmailJob::dispatch($order);
+            // SendOrderEmailJob::dispatch($order);
 
             return response()->json(['status' => 'success', 'data' => new OrderResource($order), 'message' => 'Order updated successfully'], 200);
         } catch (ModelNotFoundException $e) {
@@ -198,7 +198,7 @@ class OrderController extends Controller
             $updateSuccessful = $order->update($request->only(['order_status']));
 
             if ($updateSuccessful && $order->wasChanged('order_status')) {
-                SendOrderEmailJob::dispatch($order);
+                // SendOrderEmailJob::dispatch($order);
                 DB::commit();
                 return response()->json(['status' => 'success', 'data' => ['order_status' => $order->order_status], 'message' => 'Order status updated successfully'], 200);
             }

@@ -17,8 +17,8 @@ Route::group(['middleware' => ['auth:admin-api', 'CheckAdminToken']], function (
         Route::post('meals/store', 'store');
         Route::post('meals/update/{id}', 'update');
         Route::put('meals/active/{id}', 'updateStatus');
-        Route::delete('meals/{id}', 'destroy');
         Route::post('meals/search', 'search');
+        Route::delete('meals/{id}', 'destroy');
     });
 
     Route::controller(AddonController::class)->group(function () {
@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth:admin-api', 'CheckAdminToken']], function (
         Route::post('addons/store', 'store');
         Route::post('addons/update/{id}', 'update');
         Route::put('addons/active/{id}', 'updateStatus');
+        Route::post('addons/search', 'search');
         Route::delete('addons/{id}', 'destroy');
     });
 
@@ -34,6 +35,7 @@ Route::group(['middleware' => ['auth:admin-api', 'CheckAdminToken']], function (
         Route::post('extras/store', 'store');
         Route::post('extras/update/{id}', 'update');
         Route::put('extras/active/{id}', 'updateStatus');
+        Route::post('extras/search', 'search');
         Route::delete('extras/{id}', 'destroy');
     });
 });

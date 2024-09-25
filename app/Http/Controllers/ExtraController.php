@@ -191,22 +191,20 @@ class ExtraController extends Controller
     public function search(Request $request)
     {
         try {
-            $extras = Extra::with('category')->when('status', '1')->get();
-            $name = $request->name;
-            $description = $request->description;
-            $price = $request->price;
-            $type = $request->type;
-            $status = $request->status;
-            $category_id = $request->category_id;
+            $extras = Extra::with('category')->where('status', '1')->get();
 
-            $filtered = $extras->filter(function ($extra) use ($name, $description, $price, $type, $status, $category_id) {
-                return $extra['name'] == $name ||
-                    $extra['description'] == $description ||
-                    $extra['price'] == $price ||
-                    $extra['type'] == $type ||
-                    $extra['status'] == $status ||
-                    $extra['category_id'] == $category_id;
+            $filtered = $extras->filter(function ($extra) use ($request) {
+                return $extra['name'] == $request->name ||
+                    $extra['description'] == $request->description ||
+                    $extra['price'] == $request->price ||
+                    $extra['type'] == $request->type ||
+                    $extra['status'] == $request->status ||
+                    $extra['category_id'] == $request->category_id;
             });
+
+            if ($filtered->isEmpty()) {
+                return response()->json(['status' => 'failed', 'message' => 'No extras found'], 404);
+            }
 
             return response()->json(['status' => 'success', 'data' => ItemResource::collection($filtered)], 200);
         } catch (Exception $e) {

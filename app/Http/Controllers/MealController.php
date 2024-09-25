@@ -191,21 +191,19 @@ class MealController extends Controller
     {
         try {
             $meals = Meal::with('category')->where('status', '1')->get();
-            $name = $request->name;
-            $description = $request->description;
-            $price = $request->price;
-            $type = $request->type;
-            $status = $request->status;
-            $category_id = $request->category_id;
 
-            $filtered = $meals->filter(function ($meal) use ($name, $description, $price, $type, $status, $category_id) {
-                return $meal['name'] == $name ||
-                    $meal['description'] == $description ||
-                    $meal['price'] == $price ||
-                    $meal['type'] == $type ||
-                    $meal['status'] == $status ||
-                    $meal['category_id'] == $category_id;
+            $filtered = $meals->filter(function ($meal) use ($request) {
+                return $meal['name'] == $request->name ||
+                    $meal['description'] == $request->description ||
+                    $meal['price'] == $request->price ||
+                    $meal['type'] == $request->type ||
+                    $meal['status'] == $request->status ||
+                    $meal['category_id'] == $request->category_id;
             });
+
+            if ($filtered->isEmpty()) {
+                return response()->json(['status' => 'failed', 'message' => 'No meals found'], 404);
+            }
 
             return response()->json(['status' => 'success', 'data' => ItemResource::collection($filtered)], 200);
         } catch (Exception $e) {
