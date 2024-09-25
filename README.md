@@ -2,13 +2,21 @@
 
 This is the backend API for the FoodScan project. Follow the steps below to set up and run the project.
 
+#### Note.1
+
+### This is the URL to the postman documentation for testing.
+
+https://documenter.getpostman.com/view/31553493/2sAXqwZLEy
+
+
 ## 1. Cloning the Repository
 
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/IslamAlsayed/foodScan_api.git
-cd foodScan_api
+git clone https://github.com/IslamAlsayed/foodscan_api.git
+
+cd foodscan_api
 ```
 
 ## 2. Install Dependencies
@@ -66,7 +74,27 @@ php artisan jwt:secret
 php artisan key:generate
 ```
 
-## 8. Mail Configuration
+## 8. Running the Application
+
+### You can now run the application using the built-in PHP server
+
+```bash
+php artisan serve
+```
+
+## 9. Running the Application
+
+### The API should now be running at http://localhost:8000
+
+### You can now run the application using the built-in PHP server
+
+```bash
+php artisan serve
+```
+
+#### Note.2
+
+## If you want to configure the mail settings
 
 ### Change the following line in the .env file
 
@@ -80,20 +108,4 @@ MAIL_HOST=mailpit
 MAIL_HOST=localhost
 ```
 
-## 9. Running the Application
-
-### You can now run the application using the built-in PHP server
-
-```bash
-php artisan serve
-```
-
-## 10. Running the Application
-
-### The API should now be running at http://localhost:8000
-
-### You can now run the application using the built-in PHP server
-
-```bash
-php artisan serve
-```
+### Then run docker and run mailpit container
