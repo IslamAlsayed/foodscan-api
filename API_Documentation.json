@@ -16,7 +16,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/administrators",
+							"raw": "http://127.0.0.1:8000/api/administrators",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -63,7 +63,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/administrators/show/2",
+							"raw": "http://127.0.0.1:8000/api/administrators/show/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -110,7 +110,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/login",
+							"raw": "http://127.0.0.1:8000/api/login",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -166,7 +166,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/administrators/store",
+							"raw": "http://127.0.0.1:8000/api/administrators/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -223,7 +223,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/administrators/update/2",
+							"raw": "http://127.0.0.1:8000/api/administrators/update/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -280,7 +280,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/administrators/active/1",
+							"raw": "http://127.0.0.1:8000/api/administrators/active/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -322,7 +322,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/logout",
+							"raw": "http://127.0.0.1:8000/api/logout",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -359,7 +359,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/administrators/3",
+							"raw": "http://127.0.0.1:8000/api/administrators/3",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -393,7 +393,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/employees",
+							"raw": "http://127.0.0.1:8000/api/employees",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -440,7 +440,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/employees/show/2",
+							"raw": "http://127.0.0.1:8000/api/employees/show/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -487,7 +487,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/login",
+							"raw": "http://127.0.0.1:8000/api/login",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -543,7 +543,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/employees/store",
+							"raw": "http://127.0.0.1:8000/api/employees/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -600,7 +600,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/employees/update/2",
+							"raw": "http://127.0.0.1:8000/api/employees/update/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -657,7 +657,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/employees/active/1",
+							"raw": "http://127.0.0.1:8000/api/employees/active/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -699,7 +699,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/logout",
+							"raw": "http://127.0.0.1:8000/api/logout",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -736,7 +736,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/employees/3",
+							"raw": "http://127.0.0.1:8000/api/employees/3",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -770,7 +770,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/customers",
+							"raw": "http://127.0.0.1:8000/api/customers",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -817,7 +817,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/customers/show/2",
+							"raw": "http://127.0.0.1:8000/api/customers/show/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -864,7 +864,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/login",
+							"raw": "http://127.0.0.1:8000/api/login",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -920,7 +920,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/customers/store",
+							"raw": "http://127.0.0.1:8000/api/customers/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -977,7 +977,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/customers/update/2",
+							"raw": "http://127.0.0.1:8000/api/customers/update/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1034,7 +1034,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/customers/active/1",
+							"raw": "http://127.0.0.1:8000/api/customers/active/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1076,7 +1076,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/logout",
+							"raw": "http://127.0.0.1:8000/api/logout",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1113,7 +1113,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/customers/3",
+							"raw": "http://127.0.0.1:8000/api/customers/3",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1147,7 +1147,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/meals",
+							"raw": "http://127.0.0.1:8000/api/meals",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1218,7 +1218,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/meals/show/3",
+							"raw": "http://127.0.0.1:8000/api/meals/show/3",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1317,7 +1317,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/meals/store",
+							"raw": "http://127.0.0.1:8000/api/meals/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1407,7 +1407,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/meals/update/15",
+							"raw": "http://127.0.0.1:8000/api/meals/update/15",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1467,7 +1467,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/meals/active/15",
+							"raw": "http://127.0.0.1:8000/api/meals/active/15",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1509,7 +1509,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/meals/9",
+							"raw": "http://127.0.0.1:8000/api/meals/9",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1572,7 +1572,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/meals/store",
+							"raw": "http://127.0.0.1:8000/api/meals/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1601,7 +1601,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/extras",
+							"raw": "http://127.0.0.1:8000/api/extras",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1672,7 +1672,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/extras/show/3",
+							"raw": "http://127.0.0.1:8000/api/extras/show/3",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1771,7 +1771,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/extras/store",
+							"raw": "http://127.0.0.1:8000/api/extras/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1861,7 +1861,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/exrtas/update/15",
+							"raw": "http://127.0.0.1:8000/api/exrtas/update/15",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1921,7 +1921,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/exrtas/active/15",
+							"raw": "http://127.0.0.1:8000/api/exrtas/active/15",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1963,7 +1963,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/exrtas/9",
+							"raw": "http://127.0.0.1:8000/api/exrtas/9",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2026,7 +2026,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/exrtas/store",
+							"raw": "http://127.0.0.1:8000/api/exrtas/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2055,7 +2055,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/addons",
+							"raw": "http://127.0.0.1:8000/api/addons",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2126,7 +2126,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/addons/show/3",
+							"raw": "http://127.0.0.1:8000/api/addons/show/3",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2225,7 +2225,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/addons/store",
+							"raw": "http://127.0.0.1:8000/api/addons/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2315,7 +2315,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/addons/update/15",
+							"raw": "http://127.0.0.1:8000/api/addons/update/15",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2375,7 +2375,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/addons/active/15",
+							"raw": "http://127.0.0.1:8000/api/addons/active/15",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2417,7 +2417,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/addons/9",
+							"raw": "http://127.0.0.1:8000/api/addons/9",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2480,7 +2480,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/addons/store",
+							"raw": "http://127.0.0.1:8000/api/addons/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2509,7 +2509,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/categories",
+							"raw": "http://127.0.0.1:8000/api/categories",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2556,7 +2556,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/categories/show/1",
+							"raw": "http://127.0.0.1:8000/api/categories/show/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2628,7 +2628,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/categories/store",
+							"raw": "http://127.0.0.1:8000/api/categories/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2685,7 +2685,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/categories/update/18",
+							"raw": "http://127.0.0.1:8000/api/categories/update/18",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2742,7 +2742,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/categories/active/2",
+							"raw": "http://127.0.0.1:8000/api/categories/active/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2781,7 +2781,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/categories/2",
+							"raw": "http://127.0.0.1:8000/api/categories/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2815,7 +2815,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/diningtables",
+							"raw": "http://127.0.0.1:8000/api/diningtables",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2862,7 +2862,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/diningtables/show/1",
+							"raw": "http://127.0.0.1:8000/api/diningtables/show/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2918,7 +2918,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/diningtables/store",
+							"raw": "http://127.0.0.1:8000/api/diningtables/store",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -2974,7 +2974,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/diningtables/update/18",
+							"raw": "http://127.0.0.1:8000/api/diningtables/update/18",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -3031,7 +3031,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/diningtables/active/2",
+							"raw": "http://127.0.0.1:8000/api/diningtables/active/2",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -3070,7 +3070,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://192.168.1.63:8000/api/diningtables/2",
+							"raw": "http://127.0.0.1:8000/api/diningtables/2",
 							"protocol": "http",
 							"host": [
 								"192",
