@@ -19,11 +19,13 @@ composer update
 
 ## 3. Set Up Environment File
 
+### Create a .env file and set up your database configuration
+
 ```bash
 cp .env.example .env
 ```
 
-### open .env and editing
+### 4. Edit the .env file
 
 ```bash
 DB_CONNECTION=mysql
@@ -34,33 +36,39 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-## 3. Migrate Tables and Seed Data
+## 5. Migrate Tables and Seed Data
+
+### Run the following command to migrate the database tables and seed the initial data
 
 ```bash
 php artisan migrate --seed
 ```
 
-### or
+### Or refresh and seed in one step
 
 ```bash
 php artisan migrate:refresh --seed
 ```
 
-## 4. Generate JWT Secret Key
+## 6. Generate JWT Secret Key
+
+### Generate the JWT secret key
 
 ```bash
 php artisan jwt:secret
 ```
 
-## 4. Generate Application Key
+## 7. Generate Application Key
+
+### Generate the application key:
 
 ```bash
 php artisan key:generate
 ```
 
-## 5. Mail Configuration
+## 8. Mail Configuration
 
-### open .env and editing
+### Change the following line in the .env file
 
 ```bash
 MAIL_HOST=mailpit
@@ -72,7 +80,19 @@ MAIL_HOST=mailpit
 MAIL_HOST=localhost
 ```
 
-## 6. Running the Application
+## 9. Running the Application
+
+### You can now run the application using the built-in PHP server
+
+```bash
+php artisan serve
+```
+
+## 10. Running the Application
+
+### The API should now be running at http://localhost:8000
+
+### You can now run the application using the built-in PHP server
 
 ```bash
 php artisan serve
