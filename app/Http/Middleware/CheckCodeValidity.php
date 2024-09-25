@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 
-class CheckAdminToken
+class CheckCodeValidity
 {
     /**
      * Handle an incoming request.
@@ -21,12 +21,11 @@ class CheckAdminToken
         try {
             $user = Auth::guard('admin-api')->user();
             if (!$user || $user->role !== 'admin') {
-                throw new TokenInvalidException('You are not a admin');
+                return response()->json(['status' => 'failed', 'message' => 'You are not an admin'], 403);
             }
         } catch (TokenExpiredException $e) {
             return response()->json(['status' => 'failed', 'message' => 'Token has expired'], 401);
         }
-
 
         return $next($request);
     }

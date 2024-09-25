@@ -11,14 +11,13 @@ use Illuminate\Support\Facades\Route;
 |----------------------------------------
 */
 
-Route::group(['middleware' => ['auth:admin-api', 'CheckAdminToken']], function () {
+Route::group(['middleware' => ['auth:admin-api', 'CheckCodeValidity']], function () {
     Route::controller(MealController::class)->group(function () {
         Route::get('meals', 'index');
         Route::post('meals/store', 'store');
         Route::post('meals/update/{id}', 'update');
         Route::put('meals/active/{id}', 'updateStatus');
         Route::post('meals/search', 'search');
-        Route::delete('meals/{id}', 'destroy');
     });
 
     Route::controller(AddonController::class)->group(function () {
@@ -27,7 +26,6 @@ Route::group(['middleware' => ['auth:admin-api', 'CheckAdminToken']], function (
         Route::post('addons/update/{id}', 'update');
         Route::put('addons/active/{id}', 'updateStatus');
         Route::post('addons/search', 'search');
-        Route::delete('addons/{id}', 'destroy');
     });
 
     Route::controller(ExtraController::class)->group(function () {
@@ -36,8 +34,13 @@ Route::group(['middleware' => ['auth:admin-api', 'CheckAdminToken']], function (
         Route::post('extras/update/{id}', 'update');
         Route::put('extras/active/{id}', 'updateStatus');
         Route::post('extras/search', 'search');
-        Route::delete('extras/{id}', 'destroy');
     });
+});
+
+Route::group(['middleware' => 'CheckCodeValidity'], function () {
+    Route::delete('meals/{id}', 'MealController@destroy');
+    Route::delete('addons/{id}', 'AddonController@destroy');
+    Route::delete('extras/{id}', 'ExtraController@destroy');
 });
 
 Route::get('meals', 'MealController@index');

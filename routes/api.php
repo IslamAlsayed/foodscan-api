@@ -16,23 +16,26 @@ use App\Http\Controllers\OrderController;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'store']);
-Route::post('logout', [AuthController::class, 'logout'])->middleware(['auth:admin-api', 'CheckAdminToken']);
+Route::post('logout', [AuthController::class, 'logout'])->middleware(['auth:admin-api', 'CheckCodeValidity']);
 
-Route::group(['middleware' => ['auth:admin-api', 'CheckAdminToken']], function () {
+Route::group(['middleware' => ['auth:admin-api', 'CheckCodeValidity']], function () {
     Route::post('administrators/update/{id}', [AdministratorController::class, 'update']);
     Route::put('administrators/active/{id}', [AdministratorController::class, 'updateStatus']);
-    Route::delete('administrators/{id}', [AdministratorController::class, 'destroy']);
 });
 
 Route::group(['middleware' => 'auth:employee-api'], function () {
     Route::post('employees/update/{id}', [EmployeeController::class, 'update']);
     Route::put('employees/active/{id}', [EmployeeController::class, 'updateStatus']);
-    Route::delete('employees/{id}', [EmployeeController::class, 'destroy']);
 });
 
 Route::group(['middleware' => 'auth:customer-api'], function () {
     Route::post('customers/update/{id}', [CustomerController::class, 'update']);
     Route::put('customers/active/{id}', [CustomerController::class, 'updateStatus']);
+});
+
+Route::group(['middleware' => 'CheckCodeValidity'], function () {
+    Route::delete('administrators/{id}', [AdministratorController::class, 'destroy']);
+    Route::delete('employees/{id}', [EmployeeController::class, 'destroy']);
     Route::delete('customers/{id}', [CustomerController::class, 'destroy']);
 });
 

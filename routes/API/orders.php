@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 |-----------------------
 */
 
-Route::group(['middleware' => ['auth:admin-api', 'CheckAdminToken']], function () {
+Route::group(['middleware' => ['auth:admin-api', 'CheckCodeValidity']], function () {
     Route::get('orders', 'OrderController@index');
     Route::get('orders/show/{id}', 'OrderController@show');
     Route::post('orders/store', 'OrderController@store');
