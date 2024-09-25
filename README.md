@@ -2,11 +2,11 @@
 
 This is the backend API for the FoodScan project. Follow the steps below to set up and run the project.
 
-#### Note.1
+## Note.1
 
-### This is the URL to the postman documentation for testing.
+### This is the URL to the Postman documentation for testing:
 
-https://documenter.getpostman.com/view/31553493/2sAXqwZLEy
+[Postman Documentation](https://documenter.getpostman.com/view/31553493/2sAXqwZLEy)
 
 ## 1. Cloning the Repository
 
@@ -108,3 +108,11 @@ MAIL_HOST=localhost
 ```
 
 ### Then run docker and run mailpit container
+
+## Contact
+
+### If you have any questions or need further assistance, you can reach out to me:
+
+### Email: eslamalsayed8133@gmail.com
+
+### LinkedIn: [Islam Alsayed](https://www.linkedin.com/in/islam-alsayed7)
