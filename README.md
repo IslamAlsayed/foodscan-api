@@ -1,4 +1,5 @@
 # FoodScan API
+## This is version 1, the full version is special
 
 This is the backend API for the FoodScan project. Follow the steps below to set up and run the project.
 
