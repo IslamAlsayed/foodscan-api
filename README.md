@@ -110,8 +110,6 @@ MAIL_HOST=localhost
 ### Then run docker and run mailpit container
 
 <<<<<<< HEAD
-## Contact Me
-=======
 ## Contact me
 >>>>>>> 94c58066d819bcdd6d00dbf2229adb369ec57bdf
 
