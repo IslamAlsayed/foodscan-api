@@ -112,7 +112,6 @@ MAIL_HOST=localhost
 
 
 ## Contact me
->>>>>>> 94c58066d819bcdd6d00dbf2229adb369ec57bdf
 
 ### If you have any questions or need further assistance, you can reach out to me:
 
